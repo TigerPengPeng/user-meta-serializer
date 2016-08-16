@@ -10,4 +10,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
  * @description:
  */
 public class UserMetaModule extends SimpleModule {
+
+    public UserMetaModule() {
+        setSerializerModifier(new UserMetaBeanSerializerModifier());
+    }
 }
