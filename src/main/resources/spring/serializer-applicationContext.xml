@@ -24,4 +24,9 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
         <property name="properties" ref="sysConfig" />
     </bean>
+
+    <bean id="userMetaObjectMapperFactory" class="developer.github.factory.UserMetaObjectMapperFactory" destroy-method="destroy">
+        <constructor-arg index="0" ref="objectMapper"/>
+    </bean>
+    <bean id="userMetaObjectMapper" factory-bean="userMetaObjectMapperFactory" factory-method="get"/>
 </beans>
