@@ -25,8 +25,13 @@
         <property name="properties" ref="sysConfig" />
     </bean>
 
+    <bean id="bindModuleFactory" class="developer.github.factory.BindModuleFactory" destroy-method="destroy">
+        <constructor-arg index="0" value="${modules}" />
+    </bean>
+
     <bean id="userMetaObjectMapperFactory" class="developer.github.factory.UserMetaObjectMapperFactory" destroy-method="destroy">
         <constructor-arg index="0" ref="objectMapper"/>
     </bean>
     <bean id="userMetaObjectMapper" factory-bean="userMetaObjectMapperFactory" factory-method="get"/>
+
 </beans>

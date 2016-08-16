@@ -1,8 +1,12 @@
 package developer.github.factory;
 
+import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import developer.github.jackson.UserMetaObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PreDestroy;
 
@@ -15,6 +19,9 @@ import javax.annotation.PreDestroy;
  */
 @Slf4j
 public class UserMetaObjectMapperFactory {
+    @Autowired
+    @Qualifier("bindModuleFactory")
+    private BindModuleFactory bindModuleFactory;
 
     private ObjectMapper objectMapper;
 
@@ -23,6 +30,9 @@ public class UserMetaObjectMapperFactory {
     }
 
     public ObjectMapper get() {
+        if (!CollectionUtils.isEmpty(bindModuleFactory.get())) {
+            objectMapper.registerModules(bindModuleFactory.get());
+        }
         return objectMapper;
     }
 
