@@ -1,6 +1,6 @@
 # change serializer rules #
 
-for example: object normal serializer like this:
+# for example: object normal serializer like this #
     {
         "arrayIds": [
         6000,
