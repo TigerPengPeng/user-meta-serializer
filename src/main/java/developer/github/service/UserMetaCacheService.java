@@ -18,5 +18,5 @@ public interface UserMetaCacheService {
      * @param principalIds
      * @return
      */
-    Map<String, UserMetaVO> getKeyValuePair(Collection principalIds);
+    Map<String, UserMetaVO> getKeyValuePair(Collection<String> principalIds);
 }
