@@ -11,24 +11,6 @@
     <context:component-scan base-package="developer.github">
     </context:component-scan>
 
-    <bean id="sysConfig" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath*:config/sys.*.properties</value>
-            </list>
-        </property>
-        <property name="fileEncoding" value="utf-8"></property>
-    </bean>
-
-    <context:property-placeholder properties-ref="sysConfig" />
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="properties" ref="sysConfig" />
-    </bean>
-
-    <bean id="bindModuleFactory" class="developer.github.factory.BindModuleFactory" destroy-method="destroy">
-        <constructor-arg index="0" value="${modules}" />
-    </bean>
-
     <bean id="userMetaObjectMapperFactory" class="developer.github.factory.UserMetaObjectMapperFactory" destroy-method="destroy">
         <constructor-arg index="0" ref="objectMapper"/>
     </bean>

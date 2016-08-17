@@ -1,7 +1,7 @@
 package developer.github.factory;
 
-import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import developer.github.factory.jackson.BindModuleFactory;
 import developer.github.jackson.UserMetaObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
