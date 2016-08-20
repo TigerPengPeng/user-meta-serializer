@@ -1,5 +1,19 @@
 # change serializer rules #
 
+# usage scenarios #
+    as we all known, user id is the unique identifier tag for each user.
+    I believe that every developer store user id but not user name in database.
+    We always to use userId, but it's inconvenient to serializer user detail information to Clients and Web.
+    We can query user detail information direct and then serializer it to Client and Web.
+
+    <However, I don't think it's a good way.>
+
+    Fortunately, I wrote a user-meta serializer to serialize user detail information based on userId.
+    It makes server developer focus on userId but not user detail information.
+    But, Client and Web can get user detail information.
+
+    The user-meta serializer based on <com.fasterxml.jackson.core>
+
 # for example: object normal serializer like this #
     {
         "arrayIds": [
