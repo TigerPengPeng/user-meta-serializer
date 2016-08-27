@@ -148,6 +148,9 @@ public class UserMetaBeanSerializer extends BeanSerializer {
         List<BeanPropertyWriter> userMetaProps = new ArrayList<>(props.length);
         for (int i = 0; i < props.length; i++) {
             BeanPropertyWriter prop = props[i];
+            if (prop == null) {
+                continue;
+            }
             UserMeta userMeta = prop.getAnnotation(UserMeta.class);
             if (userMeta != null) {
                 userMetaProps.add(prop);
