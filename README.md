@@ -83,7 +83,10 @@
 #required#
     this module dependency https://github.com/TigerPengPeng/core.git
     first, you need git clone https://github.com/TigerPengPeng/core.git to local
-    and then, run mvn clean install -DskipTests -U
+    and then, build mvn
+       mvn clean install -DskipTests -U
+       or
+       mvn clean install -Dscale=/ (if you can connect to your rabbitmq server)
 
 
     if you are using ide to import this model, you need install plugins lombok
